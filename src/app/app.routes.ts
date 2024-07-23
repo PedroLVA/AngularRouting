@@ -16,7 +16,8 @@ export const routes: Routes = [
         children: [
             {
                 path: '',
-                redirectTo: 'tasks'
+                redirectTo: 'tasks',
+                pathMatch: 'prefix'
             },
             {
                 path: 'tasks',
