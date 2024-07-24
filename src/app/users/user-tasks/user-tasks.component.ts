@@ -1,6 +1,6 @@
 import { Component, computed, inject, input, OnInit } from '@angular/core';
 import { UsersService } from '../users.service';
-import { RouterLink, RouterOutlet } from '@angular/router';
+import { ActivatedRoute, ActivatedRouteSnapshot, ResolveFn, RouterLink, RouterOutlet, RouterStateSnapshot } from '@angular/router';
 
 
 @Component({
@@ -14,14 +14,18 @@ export class UserTasksComponent implements OnInit {
   private userService = inject(UsersService)
   userId = input.required<string>();
   message = input.required<string>()
+  private activatedRoute = inject(ActivatedRoute);
 
   userName = computed(() => this.userService.users.find(u => u.id === this.userId())?.name)
 
   ngOnInit(): void {
-    console.log("message: " + this.message())
+    this.activatedRoute.data.subscribe({
+      next: data => {
+        console.log(data)
+      }
+    })
   }
 
-
-
-
 }
+
+

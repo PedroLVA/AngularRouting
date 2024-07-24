@@ -31,8 +31,12 @@ export const routes: Routes = [
             },
         ],
         data: {
-            message: 'hello!',
-        }   
+            message: 'hello!'
+        },
+        resolve: {
+
+            }
+        
     },
     {
         path: '**',
