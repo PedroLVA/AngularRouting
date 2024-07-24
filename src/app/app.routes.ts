@@ -29,7 +29,10 @@ export const routes: Routes = [
                 component: NewTaskComponent
 
             },
-        ]   
+        ],
+        data: {
+            message: 'hello!',
+        }   
     },
     {
         path: '**',
